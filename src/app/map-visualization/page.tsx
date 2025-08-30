@@ -13,8 +13,8 @@ export default function YearImageTabs() {
   const years = Array.from({ length: 11 }, (_, i) => 1975 + i * 5)
   
   const [selectedYear, setSelectedYear] = useState<number>(1975)
-  const [imageData, setImageData] = useState<string>("/map/a_2010.png")
-  const [zoomLevel, setZoomLevel] = useState<number>(100)
+  const [imageData, setImageData] = useState<string>("/map/built_1975.png")
+  const [zoomLevel, setZoomLevel] = useState<number>(275)
   const [rotation, setRotation] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
@@ -25,7 +25,7 @@ export default function YearImageTabs() {
     setError(false)
     
     // Update state to show the new image path
-    setImageData("/map/a_" + year + ".png")
+    setImageData("/map/built_" + year + ".png")
     
     // Simulate loading time
     setTimeout(() => {
@@ -37,7 +37,7 @@ export default function YearImageTabs() {
   const handleTabChange = (year: string) => {
     const yearNum = parseInt(year)
     setSelectedYear(yearNum)
-    setZoomLevel(100)
+    setZoomLevel(275)
     setRotation(0)
     
     // Fetch image for the selected year
@@ -65,7 +65,7 @@ export default function YearImageTabs() {
         const url = window.URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
-        link.download = `built_${year}.tif`
+        link.download = `map/built_${year}.png`
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
@@ -257,44 +257,6 @@ export default function YearImageTabs() {
         ))}
       </Tabs>
 
-      {/* Instructions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>How to Use</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <Alert>
-            <ImageIcon className="h-4 w-4" />
-            <AlertDescription>
-              Place your TIFF images in the Next.js <code className="bg-gray-100 px-1 rounded">public/GHSL_BuiltUp/</code> folder with names like:
-              <code className="bg-gray-100 px-1 rounded ml-2">built_1975.tif</code>, 
-              <code className="bg-gray-100 px-1 rounded ml-1">built_1980.tif</code>, etc.
-            </AlertDescription>
-          </Alert>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <h4 className="font-semibold mb-2">Expected Structure:</h4>
-              <ul className="space-y-1 text-gray-600">
-                <li>• public/GHSL_BuiltUp/built_1975.tif</li>
-                <li>• public/GHSL_BuiltUp/built_1980.tif</li>
-                <li>• public/GHSL_BuiltUp/built_1985.tif</li>
-                <li>• ... and so on</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">Features:</h4>
-              <ul className="space-y-1 text-gray-600">
-                <li>• Automatic year-based loading</li>
-                <li>• Zoom in/out functionality</li>
-                <li>• Image rotation controls</li>
-                <li>• Download capability</li>
-                <li>• Responsive design</li>
-              </ul>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }
