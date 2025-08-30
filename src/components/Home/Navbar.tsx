@@ -2,93 +2,47 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
-
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-]
+import { 
+  HomeIcon, 
+  BarChartIcon, 
+  MapPinIcon, 
+  ActivityIcon, 
+  UsersIcon, 
+  StarIcon 
+} from "lucide-react"
 
 export function NavigationMenuDemo() {
+  const menuItems = [
+    { name: "Home", href: "/", icon: <HomeIcon className="w-5 h-5 mr-2 stroke-current text-black inline" /> },
+    { name: "Analytics", href: "/analytics", icon: <BarChartIcon className="w-5 h-5 mr-2 stroke-current text-black" /> },
+    { name: "Map Visualization", href: "/map-visualization", icon: <MapPinIcon className="w-5 h-5 mr-2 stroke-current text-black" /> },
+    { name: "Prediction", href: "/prediction", icon: <ActivityIcon className="w-5 h-5 mr-2 stroke-current text-black" /> },
+    { name: "Team Details", href: "/team-details", icon: <UsersIcon className="w-5 h-5 mr-2 stroke-current text-black" /> },
+    { name: "Future Scope", href: "/future-scope", icon: <StarIcon className="w-5 h-5 mr-2 stroke-current text-black" /> },
+  ]
+
   return (
-    <NavigationMenu viewport={false} >
-      <NavigationMenuList className="w-full">
-        <NavigationMenuItem>
-          <NavigationMenuLink>Home</NavigationMenuLink>
-        
-        </NavigationMenuItem>
-       
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Docs</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-       
-       
+    <NavigationMenu viewport={false} className="w-full px-3">
+      <NavigationMenuList className="w-screen px-3  flex items-center justify-between">
+        {menuItems.map((item) => (
+          <NavigationMenuItem key={item.name}>
+            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()} >
+              <Link href={item.href} className="flex items-center text-black hover:text-blue-600 flex-row">
+                {item.icon}
+                {item.name}
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
-
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   )
 }
