@@ -20,7 +20,7 @@ const AboutUsSection: React.FC = () => {
                 </p>
                 
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
-                  Our team combines creativity with cutting-edge technology to deliver solutions that not only meet today's needs but anticipate tomorrow's challenges. Every project is an opportunity to push boundaries and exceed expectations.
+                  Our team combines creativity with cutting-edge technology to deliver solutions that not only meet today&apos;s needs but anticipate tomorrow&apos;s challenges. Every project is an opportunity to push boundaries and exceed expectations.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 pt-4">

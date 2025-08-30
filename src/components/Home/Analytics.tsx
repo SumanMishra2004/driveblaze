@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, ScatterChart, Scatter, PieChart, Pie, Cell } from 'recharts'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -32,7 +32,6 @@ export default function UrbanDataDashboard() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [selectedMetric, setSelectedMetric] = useState<string>('Population')
-  const [csvFile, setCsvFile] = useState<File | null>(null)
 
   // Load CSV from public folder
   const loadPublicCSV = async (filename: string) => {
@@ -415,7 +414,7 @@ export default function UrbanDataDashboard() {
                 <h4 className="font-semibold">Usage Options:</h4>
                 <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
                   <li>Upload a CSV file using the file input above</li>
-                  <li>Place your CSV file in the Next.js public folder and click "Load from Public Folder"</li>
+                  <li>Place your CSV file in the Next.js public folder and click &quot;Load from Public Folder&quot;</li>
                   <li>The dashboard will automatically parse and visualize your data</li>
                 </ul>
               </div>
