@@ -1,8 +1,10 @@
 import React from 'react';
+import { Globe } from './Globe';
+import { GlobeDemo } from './HomeGlobe';
 
 const AboutUsSection: React.FC = () => {
   return (
-    <div className="h-full w-full bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 p-4 lg:p-8 flex items-center">
+    <div className=" h-full w-full bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 p-4 lg:p-8 flex items-center">
       <div className=" mx-auto w-full">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="flex flex-col lg:flex-row min-h-[70vh]">
@@ -34,44 +36,8 @@ const AboutUsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Green Square Section - 40% */}
-            <div className="flex-[0_0_100%] lg:flex-[0_0_40%] bg-gradient-to-br from-green-500 to-emerald-600 relative overflow-hidden flex items-center justify-center min-h-[50vh] lg:min-h-full">
-              {/* Background Elements */}
-              <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full backdrop-blur-sm"></div>
-              <div className="absolute top-32 right-16 w-16 h-16 bg-white/10 rounded-full backdrop-blur-sm"></div>
-              <div className="absolute bottom-20 left-16 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"></div>
-
-              {/* Central Content */}
-              <div className="text-center z-10">
-                <div className="w-32 h-32 bg-white/20 rounded-3xl backdrop-blur-sm mx-auto mb-6 flex items-center justify-center hover:scale-110 hover:rotate-6 transition-all duration-300">
-                  <svg
-                    className="w-16 h-16 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                  Innovation
-                </h3>
-                
-                <p className="text-white/90 text-lg max-w-xs mx-auto px-4">
-                  Driving progress through creative solutions
-                </p>
-              </div>
-
-              {/* Static Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5"></div>
-            </div>
+            {/* Globe Section - 45% */}
+            <GlobeDemo />
           </div>
         </div>
       </div>
