@@ -137,7 +137,7 @@ const ObjectiveCard = ({ title, iconName, color, children }: { title: string; ic
   return (
     <Card className={`p-8 rounded-2xl shadow-xl border ${color} transition-transform transform hover:scale-[1.01]`}>
       <Fade direction="down" triggerOnce className="flex items-center space-x-4 flex-row">
-        <Icon className={`rounded-full p-2 ${color}`} size={40} />
+       
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-gray-100">{title}</h2>
       </Fade>
       {children}
@@ -149,7 +149,7 @@ const ObjectiveListItem = ({ text, iconName, color }: { text: string; iconName: 
   const Icon = icons[iconName];
   return (
     <Fade triggerOnce direction="left" duration={700} className="flex items-start space-x-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-[1.01]">
-      <Icon className={`flex-shrink-0 mt-1 rounded-full p-1 ${color}`} size={24} />
+      
       <span className="text-gray-700 dark:text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: text }} />
     </Fade>
   );
@@ -160,7 +160,7 @@ const MethodologyCard = ({ title, steps, iconName, color }: { title: string; ste
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700 min-w-[280px] md:min-w-fit flex-1 transition-transform transform hover:scale-[1.01]">
       <div className={`flex items-center space-x-4 mb-4 ${color}`}>
-        <Icon className={`rounded-full p-2 ${color}`} size={32} />
+    
         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
       </div>
       <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
